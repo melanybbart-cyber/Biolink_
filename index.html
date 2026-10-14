@@ -10,224 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Iconos FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0e1e38 0%, #172a45 50%, #203a60 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #f0f4f8;
-            overflow-x: hidden;
-        }
-
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 420px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 28px;
-            padding: 36px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .profile-avatar {
-            width: 84px;
-            height: 84px;
-            border-radius: 50%;
-            margin: 0 auto 16px;
-            background: rgba(255, 255, 255, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-            transition: transform 0.4s ease;
-        }
-
-        .profile-avatar:hover {
-            transform: scale(1.05);
-        }
-
-        .profile-avatar i {
-            font-size: 2rem;
-            color: #ffffff;
-        }
-
-        .profile-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #ffffff;
-            letter-spacing: -0.01em;
-        }
-
-        .profile-bio {
-            font-size: 0.92rem;
-            color: rgba(240, 244, 248, 0.85);
-            margin-bottom: 12px;
-            font-weight: 300;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .profile-location {
-            font-size: 0.85rem;
-            color: #a0c4ff;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-
-        .link-card {
-            background: rgba(255, 255, 255, 0.92);
-            padding: 14px 18px;
-            border-radius: 16px;
-            text-decoration: none;
-            color: #172a45;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .link-card:hover {
-            transform: translateY(-3px);
-            background: #ffffff;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
-        }
-
-        .icon-box {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: rgba(23, 42, 69, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #172a45;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .link-info {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .link-title {
-            font-weight: 600;
-            font-size: 0.98rem;
-            color: #172a45;
-        }
-
-        .link-sub {
-            font-size: 0.78rem;
-            color: #5c708a;
-            margin-top: 2px;
-        }
-
-        .arrow-icon {
-            font-size: 0.85rem;
-            color: #8c9eb5;
-            transition: all 0.3s ease;
-        }
-
-        .link-card:hover .arrow-icon {
-            color: #172a45;
-            transform: translate(2px, -2px);
-        }
-
-        .social-footer {
-            text-align: center;
-            padding-top: 22px;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .social-footer p {
-            font-size: 0.82rem;
-            color: rgba(240, 244, 248, 0.7);
-            margin-bottom: 14px;
-            letter-spacing: 0.05em;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-        }
-
-        .social-icons a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .social-icons a:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 28px 20px;
-            }
-            .profile-name {
-                font-size: 1.55rem;
-            }
-        }
-    </style>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -257,7 +41,6 @@
                     <span class="link-title">Instagram de Arte</span>
                     <span class="link-sub">@art.melany_</span>
                 </div>
-                <i class="fas fa-arrow-up-right-from-square arrow-icon"></i>
             </a>
 
             <a href="https://melanybarba.art/" class="link-card" target="_blank" rel="noopener">
@@ -268,7 +51,6 @@
                     <span class="link-title">Página Web</span>
                     <span class="link-sub">melanybarba.art</span>
                 </div>
-                <i class="fas fa-arrow-up-right-from-square arrow-icon"></i>
             </a>
 
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=melanybb.art@gmail.com&su=Interesado%20en%20tu%20arte&body=Hola%20Melany,%0A%0AHe%20visto%20tu%20trabajo%20y%20me%20encanta.%20%C2%BFPodr%C3%ADas%20compartirme%20m%C3%A1s%20informaci%C3%B3n%20sobre:%0A-%20Precios%0A-%20Disponibilidad%0A-%20Encargos%0A%0AGracias," 
@@ -280,7 +62,6 @@
                     <span class="link-title">Contacto Directo</span>
                     <span class="link-sub">melanybb.art@gmail.com</span>
                 </div>
-                <i class="fas fa-arrow-up-right-from-square arrow-icon"></i>
             </a>
         </section>
 
@@ -301,31 +82,32 @@
         </footer>
     </main>
 
-    <!-- Partículas suaves de fondo -->
+    <!-- Librería de Partículas con mayor visibilidad para móviles -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS('particles-js', {
             particles: {
-                number: { value: 35, density: { enable: true, value_area: 800 } },
+                number: { value: 60, density: { enable: true, value_area: 700 } },
                 color: { value: "#ffffff" },
-                opacity: { value: 0.35, random: true },
-                size: { value: 2.5, random: true },
+                opacity: { value: 0.6, random: true },
+                size: { value: 3.5, random: true },
                 line_linked: {
                     enable: true,
-                    distance: 130,
+                    distance: 140,
                     color: "#ffffff",
-                    opacity: 0.1,
-                    width: 1
+                    opacity: 0.3,
+                    width: 1.2
                 },
-                move: { enable: true, speed: 0.8 }
+                move: { enable: true, speed: 1.2 }
             },
             interactivity: {
                 detect_on: "canvas",
                 events: {
-                    onhover: { enable: true, mode: "grab" }
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" }
                 },
                 modes: {
-                    grab: { distance: 150, line_linked: { opacity: 0.25 } }
+                    grab: { distance: 160, line_linked: { opacity: 0.5 } }
                 }
             }
         });
